@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content">
 
                 <EditText
-                        android:text="@={viewmodel.password}"
+                        android:text="@={viewmodel.email}"
                         android:hint="Ajayprabhakar369@gmail.com"
                         android:inputType="textEmailAddress"
                         android:drawablePadding="16dp"
