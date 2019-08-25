@@ -154,3 +154,13 @@ A **query** is a request for data or information from a database table or combin
 Room does all the hard work for you to get from Kotlin data classes to entities that can be stored in SQLite tables, and from function declarations to SQL queries.
 
 You must define each entity as an annotated data class, and the interactions as an annotated interface, a data access object (DAO). Room uses these annotated classes to create tables in the database, and queries that act on the database.
+
+#### DAO
+
+When you use a `Room database`, you query the database by defining and calling Kotlin functions in your code. These Kotlin functions map to SQL queries. You define those mappings in a DAO using annotations, and Room creates the necessary code.
+
+Think of a DAO as defining a custom interface for accessing your database.
+
+For common database operations, the Room library provides convenience annotations, such as @Insert, @Delete, and @Update. For everything else, there is the @Query annotation. You can write any query that's supported by SQLite.
+
+As an added bonus, as you create your queries in Android Studio, the compiler checks your SQL queries for syntax errors.
