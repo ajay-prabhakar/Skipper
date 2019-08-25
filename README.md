@@ -143,3 +143,14 @@ class UserRepositoryTest {
 }
 
 ```
+#### Android Room
+
+In Android, data is represented in data classes, and the data is accessed and modified using function calls. However, in the database world, you need entities and queries.
+
+An **entity** represents an object or concept, and its properties, to store in the database. An entity class defines a table, and each instance of that class represents a row in the table. Each property defines a column. In your app, the entity is going to hold information about a night of sleep.
+
+A **query** is a request for data or information from a database table or combination of tables, or a request to perform an action on the data. Common queries are for getting, inserting, and updating entities. For example, you could query for all the sleep nights on record, sorted by start time.
+
+Room does all the hard work for you to get from Kotlin data classes to entities that can be stored in SQLite tables, and from function declarations to SQL queries.
+
+You must define each entity as an annotated data class, and the interactions as an annotated interface, a data access object (DAO). Room uses these annotated classes to create tables in the database, and queries that act on the database.
