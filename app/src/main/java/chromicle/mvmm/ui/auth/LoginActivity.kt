@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import chromicle.mvmm.data.db.entitives.User
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -32,11 +33,8 @@ class LoginActivity : AppCompatActivity(), AuthListner {
         toast("Login Started")
     }
 
-    override fun onSuccess(loginResponse: LiveData<String>) {
-        loginResponse.observe(this, Observer {
-            progress_bar.visibility = View.GONE
-            toast(it)
-        })
+    override fun onSuccess(user: User) {
+        toast("${user.name} is logged in")
     }
 
     override fun onFailure(message: String) {

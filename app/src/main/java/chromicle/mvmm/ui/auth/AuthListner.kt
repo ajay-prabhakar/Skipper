@@ -1,6 +1,6 @@
 package chromicle.mvmm.ui.auth
 
-import androidx.lifecycle.LiveData
+import chromicle.mvmm.data.db.entitives.User
 
 /**
  *Created by Chromicle on 12/7/19.
@@ -8,6 +8,6 @@ import androidx.lifecycle.LiveData
 interface AuthListner {
 
     fun onStrarted()
-    fun onSuccess(loginResponse: LiveData<String>)
+    fun onSuccess(user: User)
     fun onFailure(message: String)
 }
