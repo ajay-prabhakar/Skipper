@@ -1,4 +1,4 @@
-# Skipper
+# :swimmer:Skipper
 A repository which I played around with android MVMM Architecture
 
 ## What is MVMM-
