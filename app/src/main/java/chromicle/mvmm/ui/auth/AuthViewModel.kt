@@ -3,8 +3,8 @@ package chromicle.mvmm.ui.auth
 import android.view.View
 import androidx.lifecycle.ViewModel
 import chromicle.mvmm.data.repositories.UserRepository
+import chromicle.mvmm.utils.ApiException
 import chromicle.mvmm.utils.Coroutines
-import retrofit2.Response
 
 /**
  *Created by Chromicle on 12/7/19.
@@ -24,12 +24,15 @@ class AuthViewModel : ViewModel() {
         }
 
         Coroutines.main {
-
-            val response =UserRepository().userLogin(email!!,password!!);
-            if (response.isSuccessful){
-                authListner?.onSuccess(response.body()?.user!!)
-            }else{
-                authListner?.onFailure("Error Code : ${response.code()}")
+            try {
+                val authResponse = UserRepository().userLogin(email!!, password!!)
+                authResponse.user.let {
+                    authListner?.onSuccess(it)
+                    return@main
+                }
+                authListner?.onFailure(authResponse.message!!)
+            } catch (e: ApiException) {
+                authListner?.onFailure(e.message!!)
             }
         }
 
