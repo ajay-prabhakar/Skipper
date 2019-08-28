@@ -1,15 +1,13 @@
 package chromicle.mvmm.ui.auth
 
-import chromicle.mvmm.R
-import chromicle.mvmm.utils.toast
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import chromicle.mvmm.R
 import chromicle.mvmm.data.db.entitives.User
+import chromicle.mvmm.utils.snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -30,15 +28,15 @@ class LoginActivity : AppCompatActivity(), AuthListner {
 
     override fun onStrarted() {
         progress_bar.visibility = View.VISIBLE
-        toast("Login Started")
+        root_layout.snackbar("Login Started")
     }
 
     override fun onSuccess(user: User) {
-        toast("${user.name} is logged in")
+        root_layout.snackbar("${user.name} is logged in")
     }
 
     override fun onFailure(message: String) {
         progress_bar.visibility = View.GONE
-        toast(message)
+        root_layout.snackbar(message)
     }
 }
