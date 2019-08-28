@@ -11,16 +11,15 @@ import chromicle.mvmm.data.db.entitives.UserDao
  *Created by Chromicle on 15/7/19.
  */
 
-@Database(entities = [User :: class],version = 1)
+@Database(entities = [User::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
-    abstract fun getUserData() : UserDao
+    abstract fun getUserData(): UserDao
 
-    companion object{
+    companion object {
 
         @Volatile
         private var instance: AppDataBase? = null
         private val LOCK = Any()
-
 
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {

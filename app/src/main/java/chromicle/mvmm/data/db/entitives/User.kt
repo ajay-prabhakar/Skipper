@@ -17,7 +17,7 @@ data class User(
     var email_verified_at: String? = null,
     var created_at: String? = null,
     var updated_at: String? = null
-){
+) {
     @PrimaryKey(autoGenerate = false)
     var uid: Int = CURRENT_USER_ID
 }
